@@ -29,7 +29,7 @@ app.set('view engine', 'handlebars');
 
 app.get('/', index.home);
 app.get('/cats/new', catHerder.newCat);
-// app.get('/cats', catHerder.cats);
+app.get('/cats', catHerder.cats);
 // app.get('/cats/:color', catHerder.catsColor);
 // app.get('/cats/delete/old', catHerder.delete);
 

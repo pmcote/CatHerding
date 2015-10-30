@@ -36,7 +36,14 @@ module.exports = {
 
   // Route for /cats which lists cats by age
   cats: function(req, res) {
-
+    cat.find()
+    .sort({age:1})
+    .exec(function(err, cats){
+      res.render('Cats', {
+        header_text: "list of Cats",
+        list_cats: cats
+      })
+    })
   },
 
   // Route for /cats/bycolor/:color which sorts the a list of cats of a specific color by age
