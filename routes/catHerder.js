@@ -1,29 +1,36 @@
 var cat = require('../models/cats');
-var colors = ['black', 'white', 'tabby', 'orange', 'unicaticorn'];
+var colors = ['black', 'white', 'tabby', 'orange', 'unicaticorn', 'purple'];
+var generateName = require('sillyname');
 // functions go here
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
 module.exports = {
 // Route for /cats/new
   newCat: function(req,res) {
-    // catAge = Math.round(Math.random() * 10);
-    // console.log(catAge);
-    // console.log('boop');
+    var catAge = Math.round(Math.random() * 10);
+    var catName = generateName();
+    var catColor = colors[getRandomInt(0, colors.length)];
 
-    // var Cat = new cat ({
-    //   age: catAge
-    // });
 
-    // Cat.save(function (err) {
-		//   if (err) {
-		//     console.log("Problem saving your cats :(", err);
-		//   }
-		// });
+    var Cat = new cat ({
+      age: catAge,
+      name: catName,
+      color: catColor
+    });
+
+    Cat.save(function (err) {
+		  if (err) {
+		    console.log("Problem saving your cats :(", err);
+		  }
+		});
 
     res.render("newCat", {
       header_text: "a new cat",
-      cat_name: 'boop',
-      cat_color: 'blue',
-      cat_age: '9'
+      cat_name: catName,
+      cat_color: catColor,
+      cat_age: catAge
     });
   },
 

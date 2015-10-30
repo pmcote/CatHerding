@@ -4,8 +4,7 @@ var Schema = mongoose.Schema;
 var CatSchema = new Schema({
 	age: Number,
 	name: String,
-	colors: [String],
-	image: String
+	color: String,
 });
 
 module.exports = mongoose.model('cat', CatSchema);

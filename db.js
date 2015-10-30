@@ -1,5 +1,5 @@
 var mongoose   = require('mongoose');
-var mongoURI = process.env.MONGOURI || "mongodb://localhost/test";
+var mongoURI = process.env.MONGOURI || "mongodb://localhost/cats";
 
 mongoose.connect(mongoURI);
 
